@@ -8,15 +8,27 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore'
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { LoginPage } from '../pages/login/login';
+
+interface Note {
+  content: string;
+  hearts: number;
+  id?: string;
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+ 
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = LoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
